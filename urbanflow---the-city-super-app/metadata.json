@@ -1,0 +1,8 @@
+{
+  "name": "UrbanFlow - The City Super App",
+  "description": "A premium all-in-one platform for ride-hailing, food delivery, and local services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
