@@ -3,12 +3,19 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+  pages:
+    types: [published]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -26,8 +33,11 @@ jobs:
         run: npm run build
         working-directory: ./urbanflow---the-city-super-app
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./urbanflow---the-city-super-app/dist
+          path: ./urbanflow---the-city-super-app/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
