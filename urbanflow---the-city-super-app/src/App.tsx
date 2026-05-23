@@ -24,6 +24,9 @@ import DriveAndEarn from "./pages/DriveAndEarn";
 import UrbanProPartner from "./pages/UrbanProPartner";
 import Insurance from "./pages/Insurance";
 import DownloadHub from "./pages/DownloadHub";
+import Impact from "./pages/Impact";
+import Help from "./pages/Help";
+import ConsumerApp from "./pages/ConsumerApp";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,9 +37,12 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const { pathname } = useLocation();
+  const isConsumerApp = pathname === "/consumer-app";
+
   return (
-    <div id="urban-flow" className="min-h-screen bg-[#F9FAF5] font-sans text-[#171717] overflow-x-hidden">
-      <Navbar />
+    <div id="urban-flow" className={isConsumerApp ? "min-h-screen bg-[#FAFAFA] overflow-x-hidden" : "min-h-screen bg-[#F9FAF5] font-sans text-[#171717] overflow-x-hidden"}>
+      {!isConsumerApp && <Navbar />}
       <ScrollToTop />
       <main>
         <Routes>
@@ -58,9 +64,12 @@ export default function App() {
           <Route path="/urban-pro-partner" element={<UrbanProPartner />} />
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/download-hub" element={<DownloadHub />} />
+          <Route path="/impact" element={<Impact />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/consumer-app" element={<ConsumerApp />} />
         </Routes>
       </main>
-      <Footer />
+      {!isConsumerApp && <Footer />}
     </div>
   );
 }

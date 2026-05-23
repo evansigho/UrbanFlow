@@ -21,7 +21,8 @@ export default function Services() {
       icon: Car,
       color: "bg-[#171717]",
       textColor: "text-white",
-      path: "/ride"
+      path: "/ride",
+      image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "UrbanEats",
@@ -29,7 +30,8 @@ export default function Services() {
       icon: ShoppingBag,
       color: "bg-[#BEF264]",
       textColor: "text-black",
-      path: "/eats"
+      path: "/eats",
+      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "UrbanPro",
@@ -37,7 +39,8 @@ export default function Services() {
       icon: Wrench,
       color: "bg-[#22C55E]",
       textColor: "text-white",
-      path: "/pro"
+      path: "/pro",
+      image: "https://images.unsplash.com/photo-1581578731522-5b17b8827ead?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "UrbanDash",
@@ -45,7 +48,8 @@ export default function Services() {
       icon: Truck,
       color: "bg-blue-500",
       textColor: "text-white",
-      path: "/services"
+      path: "/services",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800"
     }
   ];
 
@@ -79,6 +83,17 @@ export default function Services() {
             viewport={{ once: true }}
             className={`${s.color} ${s.textColor} rounded-[40px] p-10 h-[400px] flex flex-col justify-between group relative overflow-hidden`}
           >
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0">
+               <img 
+                 src={s.image} 
+                 alt={s.title} 
+                 className="w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700"
+                 referrerPolicy="no-referrer"
+               />
+               <div className={`absolute inset-0 ${s.color === 'bg-[#BEF264]' ? 'bg-gradient-to-t from-[#BEF264] via-[#BEF264]/80 to-transparent' : 'bg-gradient-to-t from-black/80 via-black/40 to-transparent'}`}></div>
+            </div>
+
             <div className="relative z-10">
                <div className={`w-14 h-14 rounded-2xl ${s.color === 'bg-[#BEF264]' ? 'bg-black text-white' : 'bg-white/10 text-white'} flex items-center justify-center mb-8`}>
                   <s.icon className="w-8 h-8" />

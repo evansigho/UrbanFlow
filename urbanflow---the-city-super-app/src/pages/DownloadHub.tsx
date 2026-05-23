@@ -21,11 +21,12 @@ export default function DownloadHub() {
       title: "Consumer App",
       desc: "Move, Eat, and Book Services. The ultimate tool for citizens to navigate and thrive in the city.",
       icon: User,
-      action: "Download App",
+      action: "Open Interactive App",
       platforms: ["iOS", "Android"],
       color: "from-blue-500/10 to-blue-500/5",
       iconColor: "text-blue-500",
-      type: "mobile"
+      type: "mobile",
+      linkTo: "/consumer-app"
     },
     {
       title: "Partner Driver App",
@@ -121,10 +122,19 @@ export default function DownloadHub() {
             </div>
 
             <div className="space-y-6">
-               <button className={`w-full py-4 ${item.type === 'mobile' ? 'bg-black text-white' : 'bg-white border-2 border-gray-100 text-black'} font-black rounded-2xl flex items-center justify-center gap-2 group-hover:scale-[1.02] transition-all`}>
-                  {item.action} 
-                  {item.type === 'mobile' ? <Apple className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
-               </button>
+               {item.linkTo ? (
+                  <Link to={item.linkTo} className="block w-full">
+                     <button className={`w-full py-4 ${item.type === 'mobile' ? 'bg-black text-white' : 'bg-white border-2 border-gray-100 text-black'} font-black rounded-2xl flex items-center justify-center gap-2 group-hover:scale-[1.02] transition-all`}>
+                        {item.action} 
+                        {item.type === 'mobile' ? <Smartphone className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
+                     </button>
+                  </Link>
+               ) : (
+                  <button className={`w-full py-4 ${item.type === 'mobile' ? 'bg-black text-white' : 'bg-white border-2 border-gray-100 text-black'} font-black rounded-2xl flex items-center justify-center gap-2 group-hover:scale-[1.02] transition-all`}>
+                     {item.action} 
+                     {item.type === 'mobile' ? <Apple className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
+                  </button>
+               )}
                
                {item.reqLink && (
                   <Link to={item.reqLink} className="flex items-center justify-center gap-1 text-[10px] font-black uppercase tracking-widest text-[#22C55E] hover:underline">

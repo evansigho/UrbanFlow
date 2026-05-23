@@ -131,8 +131,19 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-auto md:h-[600px]">
           <motion.div 
             whileHover={{ scale: 0.98 }}
-            className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-[#171717] to-[#262626] rounded-[32px] p-8 text-white relative overflow-hidden group"
+            className="md:col-span-2 md:row-span-2 bg-[#171717] rounded-[32px] p-8 text-white relative overflow-hidden group"
           >
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0">
+              <img 
+                src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=1200" 
+                alt="UrbanRide Background" 
+                className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+            </div>
+
             <div className="relative z-10 flex flex-col h-full">
               <span className="w-12 h-12 bg-[#22C55E] rounded-xl flex items-center justify-center mb-6 shadow-glow">
                 <Car className="w-6 h-6 text-white" />
@@ -159,6 +170,17 @@ export default function Home() {
             whileHover={{ scale: 0.98 }}
             className="md:col-span-2 bg-[#BEF264] rounded-[32px] p-8 relative overflow-hidden group"
           >
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0">
+              <img 
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=1200" 
+                alt="UrbanEats Background" 
+                className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#BEF264] via-[#BEF264]/80 to-transparent"></div>
+            </div>
+
             <div className="relative z-10">
               <span className="w-10 h-10 bg-black rounded-xl flex items-center justify-center mb-4">
                 <ShoppingBag className="w-5 h-5 text-white" />
@@ -182,9 +204,18 @@ export default function Home() {
 
           <motion.div 
             whileHover={{ scale: 0.98 }}
-            className="bg-white border border-gray-200 rounded-[32px] p-6 flex flex-col justify-between group"
+            className="bg-white border border-gray-200 rounded-[32px] p-6 flex flex-col justify-between group relative overflow-hidden"
           >
-            <div>
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+              <img 
+                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" 
+                alt="Swift Move Background" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="relative z-10">
               <span className="w-10 h-10 bg-blue-500/10 text-blue-600 rounded-xl flex items-center justify-center mb-4 transition-colors group-hover:bg-blue-500 group-hover:text-white">
                 <Truck className="w-5 h-5" />
               </span>
@@ -198,9 +229,18 @@ export default function Home() {
 
           <motion.div 
             whileHover={{ scale: 0.98 }}
-            className="bg-white border border-gray-200 rounded-[32px] p-6 flex flex-col justify-between group"
+            className="bg-white border border-gray-200 rounded-[32px] p-6 flex flex-col justify-between group relative overflow-hidden"
           >
-             <div>
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+              <img 
+                src="https://images.unsplash.com/photo-1581578731522-5b17b8827ead?auto=format&fit=crop&q=80&w=800" 
+                alt="UrbanPro Background" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="relative z-10">
               <span className="w-10 h-10 bg-orange-500/10 text-orange-600 rounded-xl flex items-center justify-center mb-4 transition-colors group-hover:bg-orange-500 group-hover:text-white">
                 <ShoppingBag className="w-5 h-5" />
               </span>
